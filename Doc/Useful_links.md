@@ -4,7 +4,8 @@
 - [Kanban board](https://trello.com/b/AXOJeYCF/bon-bon-bolt)
 
 ## **SZFM link:**
-- [Link to the requirements](https://docs.google.com/document/d/1SLTerLGVVVNZYpdHiQyvoAFm2UTGbAKFHJur4bc3hjo/edit?usp=sharing)
+- [Link to the notes](https://docs.google.com/document/d/1SLTerLGVVVNZYpdHiQyvoAFm2UTGbAKFHJur4bc3hjo/edit?usp=sharing)
+- [Link to the requirements](https://aries.ektf.hu/~tajti/szfm.html)
 
 ## **Wire frame tool:**
 - Figma.com
