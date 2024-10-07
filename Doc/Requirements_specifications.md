@@ -9,6 +9,8 @@ We would like a website where our users can check forecasts for all settlements 
 Weather reporting tied to location.
 
 ## **4. Required Business Processes**
+Everything that is being used from the database should have the source labeled for legal reasons like: **(HungaroMet Nonprofit Zrt, HungaroMet)**  
+Read: [Terms and conditions](https://odp.met.hu/ODP_altalanos_felhasznalasi_feltetelek.pdf)
 ### **4.1. Online Presence**
 #### **4.1.1. Reading Forecasts**
 Selecting a settlement => setting the interval => reading the forecast.
