@@ -1,3 +1,10 @@
 
 RainCheck/data/mydatabase.trace.db
 RainCheck/data/mydatabase.mv.db
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/RainCheck.iml
+.idea/vcs.xml
