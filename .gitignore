@@ -8,3 +8,4 @@ RainCheck/data/mydatabase.mv.db
 .idea/modules.xml
 .idea/RainCheck.iml
 .idea/vcs.xml
+/data
