@@ -3,6 +3,9 @@
 /*html{
     height: 100%
 }*/
+*{
+    margin: 0;
+}
 body{
     background-image: url('/assets/RainyBackground4.jpg');
     background-position: cover;
