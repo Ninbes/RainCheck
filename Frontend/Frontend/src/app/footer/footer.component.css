@@ -4,11 +4,14 @@
     
 }
 footer{
-    background-color: rgba(255, 255, 255, 0.3);
+    /*background-color: rgba(255, 255, 255, 0.3);*/
+    /*background-color: rgb(23, 153, 153, 0.1);*/
+    background-color: rgba(255, 225, 0, 0.3);
     box-shadow: rgba(0, 0, 0, 0.3);
     border-right-color: rgba(255, 255, 255, 0.2);
     border-bottom-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(40px);
+    /*backdrop-filter: blur(40px);*/
+    backdrop-filter: blur(20px);
     opacity: 0.9;
     border-radius: 1em;
     /*border: 0.2em solid black;*/
