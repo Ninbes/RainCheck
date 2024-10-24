@@ -7,9 +7,10 @@
     margin: 0;
 }
 body{
-    background-image: url('/assets/RainyBackground4.jpg');
+    /*background-image: url('/assets/RainyBackground4.jpg');
     background-position: cover;
     background-size:cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed;*/
+    background: linear-gradient(to right, #007991, #78ffd6);
 }

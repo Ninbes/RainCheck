@@ -1,0 +1,24 @@
+*{
+    
+}
+div.present{
+    position: absolute;
+    top: 50%; /* A komponens vertikálisan középre kerül */
+    left: 25%; /* A komponens horizontálisan középre kerül */
+    transform: translate(-50%, -50%); /* A pontos középre helyezés */
+    z-index: 1; /* Magasabban jelenik meg a videónál */
+    text-align: center;
+    /*background-color: rgba(255, 255, 255, 0.7); /* Opcióként háttérszín, hogy jobban látszódjon */
+    /*padding: 1em;
+    border-radius: 1em;*/
+}
+p.temperature{
+    color: white;
+    font-size: 6em;
+    font-weight: bold;
+    justify-content: start;
+}
+p.location{
+    color: white;
+    font-size: 2em;
+}
