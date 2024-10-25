@@ -1,0 +1,77 @@
+*{
+    
+}
+form{
+    position: absolute;
+    top: 50%; /* A komponens vertikálisan középre kerül */
+    left: 75%; /* A komponens horizontálisan középre kerül */
+    transform: translate(-50%, -50%); /* A pontos középre helyezés */
+    z-index: 1; /* Magasabban jelenik meg a videónál */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2); /* A görgetés hatására megjelenő háttér */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Árnyék a görgetéskor */
+    border-radius: 1em; /* Lekerekített sarkok */
+    backdrop-filter: blur(20px); /* Homályosító hatás */
+    opacity: 0.9;
+    height: 300px;
+    width: 40%;
+    
+}
+button{
+    display: inline-block;
+    padding: 0.65rem 1.35rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: #1042b0;
+    color: white;
+    border: none;
+    top:50%;
+}
+button:hover{
+    background-color: #0c2864;
+}
+input[type=text]{
+    padding: 0.65rem;
+    border:none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-top:10%;
+    width: 60%;
+}
+fieldset{
+    border: none;
+    margin-top: 1em;
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+fieldset.radio>div{
+    padding:0.5em;
+    border-radius: 0.25rem;
+    
+}
+input[type="radio"]{
+    display: none;
+}
+.selected{
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: large;
+}
+legend{
+    color:white;
+    font-size: 1.3em;
+    border-radius: 1rem  1rem 0 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 1em 0.3em;
+}
+
+@media only screen and (max-width: 750px) {
+    form{
+        top: 75%;
+        left:50%;
+        width: 70%;
+        height: 350px;
+    }
+}
