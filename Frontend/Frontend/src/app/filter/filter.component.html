@@ -1,17 +1,21 @@
-<form>
+<div>
+<form (ngSubmit)="onSubmit()">
     <legend>Adja meg a városát és válassza ki az előrejelzés hosszát!</legend>
-    <input type="text" placeholder="Város keresése" #city>
-    <button type="button" (click)="onSearch()">Keresés</button>
+    <input type="text" placeholder="Város keresése" name="city" [(ngModel)]="enteredCity">
+    <button type="submit" (click)="onSearch()">Keresés</button>
+
 <fieldset class="radio">
-    <div class="forecast" [ngClass]="{'selected': !isSelected}"
+    <div class="forecast" [ngClass]="{'selected': isSelected}"
     (click)="selectOption()">
     <input type="radio" id="daily" name="forecast" value="1">
     <label for="daily">Egy napos előre jelzés</label>
 </div>
-<div [ngClass]="{'selected': isSelected}"
+<div [ngClass]="{'selected': !isSelected}"
 (click)="selectOption()">
     <input type="radio" id="weakly" name="forecast" value="7">
     <label for="weakly">Egy hetes előre jelés</label>
 </div>
 </fieldset>
 </form>
+<app-present [city]="enteredCity"></app-present>
+</div>
