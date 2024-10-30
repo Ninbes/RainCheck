@@ -7,4 +7,10 @@
     "id": "2",
     "city": "Debrecen",
     "temperature": "12"
-}]}
+},
+{
+    "id": "3",
+    "city": "Miskolc",
+    "temperature": "9"
+}
+]}
