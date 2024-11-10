@@ -24,7 +24,6 @@ public class WeatherController {
     public String getOneWeekForecast(@RequestParam String location) {
         return weatherService.getWeatherDataForOneWeek(location);
     }
-
     @GetMapping("/forecast/two-week")
     public String getTwoWeekForecast(@RequestParam String location) {
         return weatherService.getWeatherDataForTwoWeek(location);
