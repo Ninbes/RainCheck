@@ -13,14 +13,14 @@ public class DateUtil {
 
     public static String getSevenDaysFromToday() {
         LocalDate today = LocalDate.now();
-        LocalDate sevenDaysFromToday = today.plusDays(7);
+        LocalDate sevenDaysFromToday = today.plusDays(6);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return sevenDaysFromToday.format(formatter);
     }
 
     public static String getFourteenDaysFromToday() {
         LocalDate today = LocalDate.now();
-        LocalDate fourteenDaysFromToday = today.plusDays(14);
+        LocalDate fourteenDaysFromToday = today.plusDays(13);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return fourteenDaysFromToday.format(formatter);
     }
