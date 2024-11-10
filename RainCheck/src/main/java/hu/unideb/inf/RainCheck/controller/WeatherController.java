@@ -16,8 +16,17 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping("/api/weather")
-    public String getWeather(@RequestParam String location) {
-        return weatherService.getWeatherData(location);
+    @GetMapping("/forecast/today")
+    public String getTodayWeather(@RequestParam String location) {
+        return weatherService.getWeatherDataForOneDay(location);
     }
+    @GetMapping("/forecast/one-week")
+    public String getOneWeekForecast(@RequestParam String location) {
+        return weatherService.getWeatherDataForOneWeek(location);
+    }
+    @GetMapping("/forecast/two-week")
+    public String getTwoWeekForecast(@RequestParam String location) {
+        return weatherService.getWeatherDataForTwoWeek(location);
+    }
+
 }
