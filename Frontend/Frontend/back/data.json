@@ -1,0 +1,16 @@
+{"data":[{
+    "id": "1",
+    "city": "Budapest",
+    "temperature": "16"
+},
+{
+    "id": "2",
+    "city": "Debrecen",
+    "temperature": "12"
+},
+{
+    "id": "3",
+    "city": "Miskolc",
+    "temperature": "9"
+}
+]}
