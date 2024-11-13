@@ -6,11 +6,12 @@ import { VideoComponent } from "./video/video.component";
 import { PresentComponent } from "./filter/present/present.component";
 import { FilterComponent } from "./filter/filter.component";
 import { ForecastComponent } from "./forecast/forecast.component";
+import { OneWeekComponent } from "./one-week/one-week.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, VideoComponent, PresentComponent, FilterComponent, ForecastComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, VideoComponent, PresentComponent, FilterComponent, ForecastComponent, OneWeekComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

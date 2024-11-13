@@ -4,5 +4,6 @@
     
     <app-filter (valueSelected)="selectedValue = $event" (citySelected)="selectedCity=$event"></app-filter>
     @if(selectedValue==="1"){<app-forecast [city]="selectedCity"></app-forecast>}
+    @else if(selectedValue==="7"){<app-one-week [city]="selectedCity"></app-one-week>}
 </main>
 <!--<app-footer class="footer"></app-footer>-->
