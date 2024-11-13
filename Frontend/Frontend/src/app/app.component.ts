@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
@@ -14,7 +14,9 @@ import { ForecastComponent } from "./forecast/forecast.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title='RainCheck';
+export class AppComponent{
   
+  title='RainCheck';
+  selectedValue!: string;
+  selectedCity!: string;
 }

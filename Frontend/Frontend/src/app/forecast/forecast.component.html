@@ -1,6 +1,7 @@
   
   <div  *ngFor="let day of days">
     <div>{{day.datetime}}</div>
+    <div>{{forecast.address}}</div>
     <div class="scroll-container">
     <div class="card d-inline-block m-1" *ngFor="let hour of day.hours">
       <div class="card-header">{{hour.datetime.slice(0, 5)}}</div>

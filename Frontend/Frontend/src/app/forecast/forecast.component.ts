@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit} from '@angular/core';
+import { Component, Input, NgModule, OnInit} from '@angular/core';
 import { Day, Forecast, Hour } from './forecast.model';
 import { ForecastService } from '../forecast.service';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -16,15 +16,18 @@ days!: Day[];
 
 hours!: Hour[];
 
+@Input() city!:string;
+
   constructor(private service: ForecastService) {
     
   }
   ngOnInit(): void {
-    this.service.findForecast("debrecen").subscribe({
+    this.service.findForecast(this.city).subscribe({
       next: value=>{
         this.forecast=value;
         //this.hours=this.day.hours;
         this.days=this.forecast.days;
+        
       }
     })
   }

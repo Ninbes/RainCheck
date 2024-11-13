@@ -5,15 +5,19 @@
     <button type="submit" (click)="onSearch()">Keresés</button>
 
 <fieldset class="radio">
-    <div class="forecast" [ngClass]="{'selected': isSelected}"
-    (click)="selectOption()">
-    <input type="radio" id="daily" name="forecast" value="1">
+    <div class="forecast" [class.selected]="selectedForecast=='1'"
+    >
+    <input type="radio" id="daily" name="forecast" value="1" [(ngModel)]="selectedForecast">
     <label for="daily">Egy napos előre jelzés</label>
 </div>
-<div [ngClass]="{'selected': !isSelected}"
-(click)="selectOption()">
-    <input type="radio" id="weakly" name="forecast" value="7">
+<div [class.selected]="selectedForecast=='7'"
+>
+    <input type="radio" id="weakly" name="forecast" value="7" [(ngModel)]="selectedForecast">
     <label for="weakly">Egy hetes előre jelés</label>
+</div>
+<div [class.selected]="selectedForecast=='14'">
+    <input type="radio" id="two-weakly" name="forecast" value="14" [(ngModel)]="selectedForecast">
+    <label for="two-weakly">Két hetes előre jelés</label>
 </div>
 </fieldset>
 </form>

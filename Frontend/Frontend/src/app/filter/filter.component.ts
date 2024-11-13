@@ -17,16 +17,14 @@ export class FilterComponent {
     //console.log(this.enteredCity);
   }
 
-  isSelected: boolean = true;
-
-  selectOption() {
-    this.isSelected = !this.isSelected; // Csak példának, állítsd logikád szerint
-  }
+ 
   enteredCity: string='Budapest';
-  selectedForecast='1';
+  selectedForecast:string='1';
   @Output() citySelected = new EventEmitter<string>(); //plusz
+  @Output() valueSelected = new EventEmitter<string>();
   onSubmit(){
     this.citySelected.emit(this.enteredCity);//plusz
+    this.valueSelected.emit(this.selectedForecast);
     console.log(this.enteredCity);
   }
 }
