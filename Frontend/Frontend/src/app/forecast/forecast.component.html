@@ -1,19 +1,16 @@
-<div class="container">
-    <div class="card my-2">
-        <div class="card-header bg-primary text-white">
-            {{forecast.address}}
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>cucc</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
+  
+  <div  *ngFor="let day of days">
+    <div>{{day.datetime}}</div>
+    <div class="scroll-container">
+    <div class="card d-inline-block m-1" *ngFor="let hour of day.hours">
+      <div class="card-header">{{hour.datetime.slice(0, 5)}}</div>
+      <div class="card-body">
+      <div>Várható hőmérséklet: <br><span class="temp">{{hour.temp}} °C</span></div>
+      <div>Csapadék mennyisége: <br><span class="precip">{{hour.precip}} cm</span></div>
+      <div>Csapadék típusa: <br><span class="precip">{{hour.preciptype || "Nem várható"}}</span></div>
     </div>
-</div>
+    </div>
+    </div>
+  </div>
+
+  
