@@ -20,5 +20,25 @@
     z-index: auto;
 }*/
 main{
-    height:1000px;
+    
 }
+.scroll-arrow {
+    font-size: 2rem;
+    cursor: pointer;
+    bottom: 20px;
+    right: 20px;
+    color: #007bff;
+    position: absolute;
+    z-index: 1;
+    transition: opacity .3s ease,
+    display .3s ease allow-discrete;
+  }
+  
+  .scroll-arrow:hover {
+    color: #0056b3;
+    scale: 1.1;
+  }
+  .scrolled{
+    display: none;
+  }
+

@@ -14,11 +14,27 @@ import { TwoWeeksComponent } from "./two-weeks/two-weeks.component";
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent, VideoComponent, PresentComponent, FilterComponent, ForecastComponent, OneWeekComponent, TwoWeeksComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+
+host:{
+  '(window:scroll)': 'onWindowScroll()'
+}
 })
 export class AppComponent{
   
   title='RainCheck';
   selectedValue: string="1";
   selectedCity: string="Budapest";
+
+  scrollToSection() {
+    const targetElement = document.getElementById('target-section');
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  isScrolled = false;
+
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 25;
+  }
 }
