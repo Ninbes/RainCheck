@@ -1,4 +1,4 @@
-import { Component, Input, NgModule, OnInit} from '@angular/core';
+import { Component, Input, NgModule, OnInit, SimpleChanges} from '@angular/core';
 import { Day, Forecast, Hour } from './forecast.model';
 import { ForecastService } from '../forecast.service';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -28,6 +28,19 @@ hours!: Hour[];
         //this.hours=this.day.hours;
         this.days=this.forecast.days;
         
+      }
+    })
+  }
+  ngOnChanges(changes: SimpleChanges){
+    if(changes['city']){
+      this.loadForecast();
+    }
+  }
+  loadForecast(){
+    this.service.findForecast(this.city).subscribe({
+      next: value=>{
+        this.forecast=value;
+        this.days=this.forecast.days;
       }
     })
   }

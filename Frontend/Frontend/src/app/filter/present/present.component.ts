@@ -1,4 +1,4 @@
-import { Component, inject, Input, input, NgModule, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, input, NgModule, OnInit, signal, SimpleChange, SimpleChanges } from '@angular/core';
 import { fakeData } from '../../fakeData';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FilterComponent } from '../filter.component';
@@ -53,6 +53,19 @@ export class PresentComponent{
         next: value=>{
           this.forecast=value;
           //this.hours=this.day.hours;
+          this.days=this.forecast.days;
+        }
+      })
+    }
+    ngOnChanges(changes: SimpleChanges){
+      if(changes['city']){
+        this.loadForecast();
+      }
+    }
+    loadForecast(){
+      this.service.findForecast(this.city).subscribe({
+        next: value=>{
+          this.forecast=value;
           this.days=this.forecast.days;
         }
       })

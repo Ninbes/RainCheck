@@ -5,7 +5,7 @@ import { PresentComponent } from "./present/present.component";
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [FormsModule, NgClass, PresentComponent],
+  imports: [FormsModule, NgClass],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.css'
 })
@@ -18,7 +18,7 @@ export class FilterComponent {
   }
 
  
-  enteredCity: string='Budapest';
+  enteredCity!: string;
   selectedForecast:string='1';
   @Output() citySelected = new EventEmitter<string>(); //plusz
   @Output() valueSelected = new EventEmitter<string>();
@@ -26,5 +26,11 @@ export class FilterComponent {
     this.citySelected.emit(this.enteredCity);//plusz
     this.valueSelected.emit(this.selectedForecast);
     console.log(this.enteredCity);
+  }
+  onForecastChange() {
+    // Frissítheted a tartalmat itt, ha szükséges
+    // További logikát is hozzáadhatsz, ha szükséges
+    this.valueSelected.emit(this.selectedForecast);
+    console.log("Előrejelzés hossza változott:", this.selectedForecast);
   }
 }

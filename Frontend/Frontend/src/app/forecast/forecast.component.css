@@ -13,7 +13,10 @@
   .card {
     display: flex;
     scroll-behavior: smooth;
-    
+
+  }
+  .card:hover{
+    scale:1.05;
   }
   
   .card {
