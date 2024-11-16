@@ -7,7 +7,7 @@
       <div>Maximális hőmérséklet: <br><span class="temp">{{day.tempmax}} °C</span></div>
       <div>Minimális hőmérséklet: <br><span class="temp">{{day.tempmin}} °C</span></div>
       <div>Csapadék mennyisége: <br><span class="precip">{{day.precip}} cm</span></div>
-      <div>Csapadék típusa: <br><span class="precip" *ngFor="let type of day.preciptype">{{type}} </span></div>
+      <div>Csapadék típusa: <br><span class="precip">{{day.preciptype || "Nem várható"}} </span></div>
     </div>
     </div>
     </div>

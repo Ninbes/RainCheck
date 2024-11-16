@@ -13,6 +13,6 @@ export class Day{
             tempmax!: number;
             tempmin!: number;
             precip!: number;
-            preciptype!: string[];
+            preciptype!: string;
             windspeedmax!: number;
 }
