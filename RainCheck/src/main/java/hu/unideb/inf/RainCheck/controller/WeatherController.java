@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import utils.StringHandlingUtil;
 
 @RestController
 public class WeatherController {
@@ -18,15 +19,15 @@ public class WeatherController {
 
     @GetMapping("/forecast/today")
     public String getTodayWeather(@RequestParam String location) {
-        return weatherService.getWeatherDataForOneDay(location);
+        return weatherService.getWeatherDataForOneDay(StringHandlingUtil.stripAccents(location));
     }
     @GetMapping("/forecast/one-week")
     public String getOneWeekForecast(@RequestParam String location) {
-        return weatherService.getWeatherDataForOneWeek(location);
+        return weatherService.getWeatherDataForOneWeek(StringHandlingUtil.stripAccents(location));
     }
     @GetMapping("/forecast/two-week")
     public String getTwoWeekForecast(@RequestParam String location) {
-        return weatherService.getWeatherDataForTwoWeek(location);
+        return weatherService.getWeatherDataForTwoWeek(StringHandlingUtil.stripAccents(location));
     }
 
 }
