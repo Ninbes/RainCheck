@@ -1,9 +1,11 @@
-import { Component, inject, Input, input, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, input, NgModule, OnInit, signal, SimpleChange, SimpleChanges } from '@angular/core';
 import { fakeData } from '../../fakeData';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FilterComponent } from '../filter.component';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Day, Forecast } from './present.model';
+import { ForecastService } from '../../forecast.service';
 
 interface CityData {
   id: string;
@@ -14,17 +16,15 @@ interface CityData {
 @Component({
   selector: 'app-present',
   standalone: true,
-  imports: [DatePipe],
+  imports: [CommonModule],
   templateUrl: './present.component.html',
   styleUrl: './present.component.css',
 })
 export class PresentComponent{
 
-  /*currentDate=new Date();
-  @Input() city: string='Budapest';*/
 
-  @Input() city: string = '';
-  temperature: string = '??';
+  @Input() city!: string;
+  /*temperature: string = '??';
   currentDate: Date = new Date();
 
   ngOnChanges(): void {
@@ -32,8 +32,6 @@ export class PresentComponent{
   }
 
   updateTemperature(): void {
-    /*const cityData = this.getTemperatureData().find(item => item.city.toLowerCase() === this.city.toLowerCase());
-    this.temperature = cityData ? cityData.temperature : '??';*/
     this.getTemperatureData().subscribe(data => {
       const cityData = data.find((item: CityData) => item.city.toLowerCase() === this.city.toLowerCase());
       this.temperature = cityData ? cityData.temperature : '??';
@@ -42,10 +40,35 @@ export class PresentComponent{
 
   constructor(private http: HttpClient) {}
   getTemperatureData() {
-    /*return [
-      { id: '1', city: 'Budapest', temperature: '16' },
-      { id: '2', city: 'Debrecen', temperature: '12' }
-    ];*/
     return this.http.get<CityData[]>('http://localhost:3000/data');
-  }
+  }*/
+    forecast!: Forecast;
+    days!: Day[];
+
+    constructor(private service: ForecastService) {
+    
+    }
+    ngOnInit(): void {
+      this.service.findForecast(this.city).subscribe({
+        next: value=>{
+          this.forecast=value;
+          //this.hours=this.day.hours;
+          this.days=this.forecast.days;
+        }
+      })
+    }
+    ngOnChanges(changes: SimpleChanges){
+      if(changes['city']){
+        this.loadForecast();
+      }
+    }
+    loadForecast(){
+      this.service.findForecast(this.city).subscribe({
+        next: value=>{
+          this.forecast=value;
+          this.days=this.forecast.days;
+        }
+      })
+    }
+  
 }

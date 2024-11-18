@@ -1,0 +1,14 @@
+<div class="title">One-week forecast:</div>
+<div class="scroll-container">
+<div *ngFor="let day of days">
+    <div class="card d-inline-block m-1">
+      <div class="card-header">{{day.datetime}}</div>
+      <div class="card-body">
+      <div>Maximum temperature: <br><span class="temp">{{day.tempmax}} °C</span></div>
+      <div>Minimum temperature: <br><span class="temp">{{day.tempmin}} °C</span></div>
+      <div>Amount of precipitation: <br><span class="precip">{{day.precip}} cm</span></div>
+      <div>Precipitation type: <br><span class="precip">{{day.preciptype || "Not expected"}} </span></div>
+    </div>
+    </div>
+    </div>
+  </div>

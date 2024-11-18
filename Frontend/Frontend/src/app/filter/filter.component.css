@@ -42,10 +42,10 @@ input[type=text]{
 }
 fieldset{
     border: none;
-    margin-top: 1em;
     color:white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom: 2em;
+    width: 80%;
+    margin: 1em auto 2em;
 }
 fieldset.radio>div{
     padding:0.5em;

@@ -1,0 +1,65 @@
+
+  
+  .scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    width: 80%;
+    margin: 4em auto;
+    padding: 2em;
+  }
+  
+  .card {
+    display: flex;
+    scroll-behavior: smooth;
+
+  }
+  .card:hover{
+    scale:1.05;
+  }
+  
+  .card {
+    flex: 0 0 auto;
+    width: 200px; /* Állítsd be a kívánt szélességet */
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+
+    background-color: rgba(255, 255, 255, 0.2); /* A görgetés hatására megjelenő háttér */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Árnyék a görgetéskor */
+
+    backdrop-filter: blur(20px); /* Homályosító hatás */
+    opacity: 0.9;
+    color: #fff;
+  }
+  
+  .card-header {
+    padding: 10px;
+    font-size: large;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-body {
+    padding: 10px;
+    justify-content: center;
+    font-size: medium;
+    color: #333;
+  }
+.temp{
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+}
+.precip{
+    font-size: large;
+    color: white;
+}
+.title{
+  font-size: 2em;
+  margin-top: 2em;
+  color:white;
+  margin-left: 1em;
+}
