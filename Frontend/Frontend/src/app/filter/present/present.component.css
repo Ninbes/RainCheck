@@ -1,5 +1,5 @@
 *{
-   /*border: 0.2em solid black; */
+   /*border: 0.2em solid black;*/
 }
 div.present{
     margin:0;
@@ -12,6 +12,7 @@ div.present{
     /*background-color: rgba(255, 255, 255, 0.7); /* Opcióként háttérszín, hogy jobban látszódjon */
     /*padding: 1em;
     border-radius: 1em;*/
+    max-width: 400px;
 }
 p.temperature{
     color: white;
@@ -34,5 +35,6 @@ p.date{
         left:50%;
         transform: translate(-50%, -50%);
         width: 100%;
+        max-width: 700px;
     }
 }
