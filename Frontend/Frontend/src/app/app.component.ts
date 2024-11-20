@@ -26,12 +26,27 @@ export class AppComponent{
   selectedValue: string="1";
   selectedCity: string="Budapest";
 
-  scrollToSection() {
+  /*scrollToSection() {
     const targetElement = document.getElementById('target-section');
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
+  }*/
+
+  scrollToSection() {
+    const targetElement = document.getElementById('target-section');
+    if (targetElement) {
+      const offset = 120; // A kívánt távolság pixelben
+      const elementPosition = targetElement.getBoundingClientRect().top; // Elem pozíciója az aktuális viewportban
+      const offsetPosition = elementPosition + window.scrollY - offset; // Számolt görgetési pozíció
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth', // Simább görgetés
+      });
+    }
   }
+
   isScrolled = false;
 
   onWindowScroll() {

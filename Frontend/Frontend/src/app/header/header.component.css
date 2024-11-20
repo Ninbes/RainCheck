@@ -12,7 +12,7 @@
     top: 1%; /* A header a képernyő tetején helyezkedjen el */
     left: 1%;
     width: 98%; /* Az egész szélességet lefedje */
-    padding: 1em 2em;
+    /*padding: 0 2em;*/
     background-color: transparent; /* Alapértelmezett átlátszó háttér */
     display: flex;
     justify-content: space-between; /* A logó és a többi tartalom megfelelő elhelyezése */
@@ -20,6 +20,8 @@
     z-index: 1000; /* A header legyen legfelül */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Animáció a görgetésre */
     border-radius: 1em;
+
+    /*justify-content: center;*/
 }
 
 /*.logo {
@@ -41,15 +43,18 @@
 
 .logo img {
     max-height: 100px; /* Set the max height of the logo */
-    margin-right: 2em;
+    /*margin-right: 2em;*/
+    margin: auto;
+    justify-content: center;
 }
 
 .logo h2 {
     font-size: 3em;
     font-weight: bold;
     margin: auto;
-    color: #1f1f1f; /* Customize the text color */
+    color: #1f1f1f;
     font-style: italic;
+    margin-left: 0.5em;
 }
 
 a {
@@ -73,5 +78,13 @@ img, a{
 }
 a{
     display: flexbox;
+}
+@media only screen and (max-width: 750px) {
+    .logo h2 {
+        display: none;
+    }
+    .header{
+        justify-content: center;
+    }
 }
 

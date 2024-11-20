@@ -41,4 +41,7 @@ main{
   .scrolled{
     display: none;
   }
+  #target-section{
+    margin-top: 2em;
+  }
 
