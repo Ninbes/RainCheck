@@ -9,7 +9,6 @@ import utils.StringHandlingUtil;
 
 @RestController
 public class WeatherController {
-
     private final WeatherService weatherService;
 
     @Autowired

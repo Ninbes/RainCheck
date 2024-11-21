@@ -9,3 +9,4 @@ RainCheck/data/mydatabase.mv.db
 .idea/RainCheck.iml
 .idea/vcs.xml
 /data
+RainCheck/src/main/resources/.env
