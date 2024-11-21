@@ -20,7 +20,6 @@ public class WeatherService {
 
     public String getWeatherDataForOneDay(String location) {
         String today = DateUtil.getToday();
-
         String url = UriComponentsBuilder.fromHttpUrl("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
                         + location + "/" + today + "/" + today)
                 .queryParam("unitGroup", "metric")
