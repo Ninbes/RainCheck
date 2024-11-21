@@ -8,14 +8,15 @@ import utils.DateUtil;
 
 @Service
 public class WeatherService {
-
     private final RestTemplate restTemplate;
+    private final ApiCallCounterService apiCallCounter;
 
     @Value("${weather.api.key}")
     private String apiKey;
 
-    public WeatherService(RestTemplate restTemplate) {
+    public WeatherService(RestTemplate restTemplate, ApiCallCounterService apiCallCounter) {
         this.restTemplate = restTemplate;
+        this.apiCallCounter = apiCallCounter;
     }
 
     public String getWeatherDataForOneDay(String location) {
@@ -28,7 +29,7 @@ public class WeatherService {
                 .queryParam("key", apiKey)
                 .queryParam("contentType", "json")
                 .toUriString();
-
+        apiCallCounter.incrementAndGet();
         return restTemplate.getForObject(url, String.class);
     }
     public String getWeatherDataForOneWeek(String location) {
@@ -44,6 +45,7 @@ public class WeatherService {
                 .queryParam("contentType", "json")
                 .toUriString();
 
+        apiCallCounter.incrementAndGet();
         return restTemplate.getForObject(url, String.class);
     }
     public String getWeatherDataForTwoWeek(String location) {
@@ -59,6 +61,7 @@ public class WeatherService {
                 .queryParam("contentType", "json")
                 .toUriString();
 
+        apiCallCounter.incrementAndGet();
         return restTemplate.getForObject(url, String.class);
     }
 }
