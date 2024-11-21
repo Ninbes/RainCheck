@@ -18,7 +18,9 @@ public class ApiCallCounterController {
     @GetMapping("/api-call-count")
     public String getApiCallCount() {
         long count = apiCallCounter.getCount();
-        return "Total API calls made: " + count;
+
+        String ttl = apiCallCounter.getRemainingTTL();
+
+        return String.format("Total API calls made: %d. \nTime remaining: %s.", count, ttl);
     }
 }
-

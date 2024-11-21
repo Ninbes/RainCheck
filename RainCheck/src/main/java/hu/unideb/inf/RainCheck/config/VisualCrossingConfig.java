@@ -9,7 +9,6 @@ public class VisualCrossingConfig {
     private String key;
     private String baseUrl;
 
-    // Getters and setters
     public String getKey() {
         return key;
     }
