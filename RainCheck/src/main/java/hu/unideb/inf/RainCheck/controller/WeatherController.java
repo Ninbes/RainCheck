@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import utils.StringHandlingUtil;
+import java.net.URISyntaxException;
 
 @RestController
 public class WeatherController {
@@ -17,16 +17,17 @@ public class WeatherController {
     }
 
     @GetMapping("/forecast/today")
-    public String getTodayWeather(@RequestParam String location) {
-        return weatherService.getWeatherDataForOneDay(StringHandlingUtil.stripAccents(location));
+    public String getTodayWeather(@RequestParam String location) throws URISyntaxException {
+        return weatherService.getWeatherDataForOneDay(location);
     }
     @GetMapping("/forecast/one-week")
-    public String getOneWeekForecast(@RequestParam String location) {
-        return weatherService.getWeatherDataForOneWeek(StringHandlingUtil.stripAccents(location));
+    public String getOneWeekForecast(@RequestParam String location) throws URISyntaxException{
+        return weatherService.getWeatherDataForOneWeek(location);
     }
+
     @GetMapping("/forecast/two-week")
-    public String getTwoWeekForecast(@RequestParam String location) {
-        return weatherService.getWeatherDataForTwoWeek(StringHandlingUtil.stripAccents(location));
+    public String getTwoWeekForecast(@RequestParam String location) throws URISyntaxException {
+        return weatherService.getWeatherDataForTwoWeek(location);
     }
 
 }
