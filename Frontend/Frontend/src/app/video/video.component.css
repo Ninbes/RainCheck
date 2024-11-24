@@ -1,7 +1,7 @@
 video{
     top:0;
     left:0;
-    width: 100%;      /* A videó kitölti a teljes szélességet */
-    height: 100vh;     /* A magasság automatikusan igazodik */
-    object-fit: cover; /* A videó mindig kitölti a rendelkezésre álló helyet, a kivágott részek nélkül */
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
 }

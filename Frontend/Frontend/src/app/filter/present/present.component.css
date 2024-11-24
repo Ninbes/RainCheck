@@ -1,17 +1,12 @@
-*{
-   /*border: 0.2em solid black; */
-}
 div.present{
     margin:0;
     position: absolute;
-    top: 50%; /* A komponens vertikálisan középre kerül */
-    left: 25%; /* A komponens horizontálisan középre kerül */
-    transform: translate(-50%, -50%); /* A pontos középre helyezés */
-    z-index: 1; /* Magasabban jelenik meg a videónál */
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
     text-align: center;
-    /*background-color: rgba(255, 255, 255, 0.7); /* Opcióként háttérszín, hogy jobban látszódjon */
-    /*padding: 1em;
-    border-radius: 1em;*/
+    max-width: 400px;
 }
 p.temperature{
     color: white;
@@ -24,7 +19,7 @@ p.location{
     font-size: 2em;
     font-weight: bold;
 }
-p.date{
+p.date, p.error{
     color:white;
     font-size: 1.5em;
 }
@@ -34,5 +29,6 @@ p.date{
         left:50%;
         transform: translate(-50%, -50%);
         width: 100%;
+        max-width: 700px;
     }
 }

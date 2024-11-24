@@ -1,16 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-
-/*html{
-    height: 100%
-}*/
 *{
     margin: 0;
 }
 body{
-    /*background-image: url('/assets/RainyBackground4.jpg');
-    background-position: cover;
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;*/
     background: linear-gradient(to right, #007991, #78ffd6);
 }

@@ -1,26 +1,7 @@
 
 *{
-    /*margin: 1em;*/
     padding: 0;
-    box-sizing: border-box; /* Globális stílus a margin és padding eltávolítására */
-}
-
-/*main{
-    margin-top: 5em;
-    position: sticky;
-    height: 1000px;
-    /*background-color: rgb(23, 153, 153, 0.1);*/
-    /*background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: rgba(0, 0, 0, 0.3);
-    border-right-color: rgba(255, 255, 255, 0.2);
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    opacity: 0.9;
-    border-radius: 1em;
-    z-index: auto;
-}*/
-main{
-    
+    box-sizing: border-box;
 }
 .scroll-arrow {
     font-size: 2rem;
@@ -40,5 +21,8 @@ main{
   }
   .scrolled{
     display: none;
+  }
+  #target-section{
+    margin-top: 2em;
   }
 
