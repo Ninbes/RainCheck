@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Day, Forecast } from './present.model';
 import { ForecastService } from '../../forecast.service';
+import { error } from 'console';
 
 interface CityData {
   id: string;
@@ -44,6 +45,7 @@ export class PresentComponent{
   }*/
     forecast!: Forecast;
     days!: Day[];
+    errorMessage: string | null=null;
 
     constructor(private service: ForecastService) {
     
@@ -54,6 +56,10 @@ export class PresentComponent{
           this.forecast=value;
           //this.hours=this.day.hours;
           this.days=this.forecast.days;
+          this.errorMessage=null;
+        },
+        error: (error)=> {
+          this.errorMessage=error.message;
         }
       })
     }
