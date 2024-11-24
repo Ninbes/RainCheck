@@ -28,7 +28,11 @@ export class ForecastService {
   private handleError(error: HttpErrorResponse) {
     if (error.status === 429) {
       return throwError(() => new Error('API limit exceeded.'));
-    } else {
+    } 
+    else if(error.status===400){
+      return throwError(()=>new Error('Unknown city.'))
+    }
+    else {
       return throwError(() => new Error('An unexpected error occurred.'));
     }
   }

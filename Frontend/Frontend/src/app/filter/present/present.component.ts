@@ -53,6 +53,9 @@ export class PresentComponent{
         next: value=>{
           this.forecast=value;
           this.days=this.forecast.days;
+        },
+        error: (error)=> {
+          this.errorMessage=error.message;
         }
       })
     }
