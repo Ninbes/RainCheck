@@ -1,7 +1,3 @@
-<!--<div class="present">
-    <p class="location">{{forecast.resolvedAddress}}</p>
-    <p class="date"></p>
-</div>-->
 @if(!errorMessage){<div class="present" *ngFor="let day of days">
     <p class="location">{{forecast.resolvedAddress}}</p>
     <p class="date">{{day.datetime}}</p>

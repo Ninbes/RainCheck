@@ -21,17 +21,17 @@
   
   .card {
     flex: 0 0 auto;
-    width: 200px; /* Állítsd be a kívánt szélességet */
+    width: 200px;
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
     text-align: center;
 
-    background-color: rgba(255, 255, 255, 0.2); /* A görgetés hatására megjelenő háttér */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Árnyék a görgetéskor */
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 
-    backdrop-filter: blur(20px); /* Homályosító hatás */
+    backdrop-filter: blur(20px);
     opacity: 0.9;
     color: #fff;
   }

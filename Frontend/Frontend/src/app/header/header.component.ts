@@ -13,10 +13,7 @@ import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 export class HeaderComponent {
   isScrolled = false;
 
-  // Figyeli a window görgetését
-  //@HostListener('window:scroll', [])
   onWindowScroll() {
-    // Ellenőrzi, hogy a görgetési pozíció nagyobb-e mint 50px
     this.isScrolled = window.scrollY > 25;
   }
 

@@ -1,6 +1,4 @@
 * {
-    /* A teljes layout-nak flexet használni mindenhol nem mindig jó ötlet, 
-       ha nincs rá szükség, inkább vedd ki */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,31 +6,18 @@
 }
 
 .header {
-    position: fixed; /* A header fixen marad a képernyő tetején */
-    top: 1%; /* A header a képernyő tetején helyezkedjen el */
+    position: fixed;
+    top: 1%;
     left: 1%;
-    width: 98%; /* Az egész szélességet lefedje */
-    /*padding: 0 2em;*/
-    background-color: transparent; /* Alapértelmezett átlátszó háttér */
+    width: 98%;
+    background-color: transparent;
     display: flex;
-    justify-content: space-between; /* A logó és a többi tartalom megfelelő elhelyezése */
+    justify-content: space-between;
     align-items: center;
-    z-index: 1000; /* A header legyen legfelül */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Animáció a görgetésre */
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     border-radius: 1em;
-
-    /*justify-content: center;*/
 }
-
-/*.logo {
-    height: 100px;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 2em;
-
-}*/
 .logo {
     display: flex;
     align-items: center;
@@ -42,8 +27,7 @@
 }
 
 .logo img {
-    max-height: 100px; /* Set the max height of the logo */
-    /*margin-right: 2em;*/
+    max-height: 100px;
     margin: auto;
     justify-content: center;
 }
@@ -58,17 +42,16 @@
 }
 
 a {
-    text-decoration: none; /* Removes the underline from the text */
+    text-decoration: none;
     z-index: 1010;
 }
 
 
 .scrolled, .header:hover {
-    /*background-color: rgba(23, 153, 153, 0.1);*/
-    background-color: rgba(255, 255, 255, 0.2); /* A görgetés hatására megjelenő háttér */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Árnyék a görgetéskor */
-    border-radius: 1em; /* Lekerekített sarkok */
-    backdrop-filter: blur(20px); /* Homályosító hatás */
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 1em;
+    backdrop-filter: blur(20px);
     opacity: 0.9;
 }
 
