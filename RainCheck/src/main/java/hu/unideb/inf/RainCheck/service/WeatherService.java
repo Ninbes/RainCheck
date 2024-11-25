@@ -1,7 +1,8 @@
 package hu.unideb.inf.RainCheck.service;
 
 import hu.unideb.inf.RainCheck.config.VisualCrossingConfig;
-import org.springframework.beans.factory.annotation.Value;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -9,11 +10,11 @@ import utils.DateUtil;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 @Service
 public class WeatherService {
+    private static final Logger logger = LoggerFactory.getLogger(WeatherService.class);
+
     private final RestTemplate restTemplate;
     private final ApiCallCounterService apiCallCounter;
     private final VisualCrossingConfig visualCrossingConfig;
@@ -34,9 +35,19 @@ public class WeatherService {
                 .queryParam("key", visualCrossingConfig.getKey())
                 .queryParam("contentType", "json")
                 .toUriString();
+
+        logger.info("Fetching weather data for one day. Location: {}, Date: {}", location, today);
+        logger.debug("Constructed URL: {}", url);
+
         apiCallCounter.incrementAndGet();
-        return restTemplate.getForObject(new URI(url), String.class);
+        String response = restTemplate.getForObject(new URI(url), String.class);
+
+        logger.info("Weather data for one day retrieved successfully.");
+        logger.debug("Response: {}", response);
+
+        return response;
     }
+
     public String getWeatherDataForOneWeek(String location) throws URISyntaxException {
         String today = DateUtil.getToday();
         String oneWeek = DateUtil.getSevenDaysFromToday();
@@ -50,8 +61,17 @@ public class WeatherService {
                 .queryParam("contentType", "json")
                 .toUriString();
 
-        return restTemplate.getForObject(new URI(url), String.class);
+        logger.info("Fetching weather data for one week. Location: {}, Date range: {} to {}", location, today, oneWeek);
+        logger.debug("Constructed URL: {}", url);
+
+        String response = restTemplate.getForObject(new URI(url), String.class);
+
+        logger.info("Weather data for one week retrieved successfully.");
+        logger.debug("Response: {}", response);
+
+        return response;
     }
+
     public String getWeatherDataForTwoWeek(String location) throws URISyntaxException {
         String today = DateUtil.getToday();
         String twoWeek = DateUtil.getFourteenDaysFromToday();
@@ -65,8 +85,14 @@ public class WeatherService {
                 .queryParam("contentType", "json")
                 .toUriString();
 
-        return restTemplate.getForObject(new URI(url), String.class);
+        logger.info("Fetching weather data for two weeks. Location: {}, Date range: {} to {}", location, today, twoWeek);
+        logger.debug("Constructed URL: {}", url);
+
+        String response = restTemplate.getForObject(new URI(url), String.class);
+
+        logger.info("Weather data for two weeks retrieved successfully.");
+        logger.debug("Response: {}", response);
+
+        return response;
     }
 }
-
-
