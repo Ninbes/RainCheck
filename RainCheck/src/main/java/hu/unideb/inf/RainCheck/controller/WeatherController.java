@@ -1,5 +1,6 @@
 package hu.unideb.inf.RainCheck.controller;
 
+import hu.unideb.inf.RainCheck.service.CachedWeatherService;
 import hu.unideb.inf.RainCheck.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,25 +10,25 @@ import java.net.URISyntaxException;
 
 @RestController
 public class WeatherController {
-    private final WeatherService weatherService;
+    private final CachedWeatherService cachedWeatherService;
 
     @Autowired
-    public WeatherController(WeatherService weatherService) {
-        this.weatherService = weatherService;
+    public WeatherController(CachedWeatherService cachedWeatherService) {
+        this.cachedWeatherService = cachedWeatherService;
     }
 
     @GetMapping("/forecast/today")
     public String getTodayWeather(@RequestParam String location) throws URISyntaxException {
-        return weatherService.getWeatherDataForOneDay(location);
+        return cachedWeatherService.getWeatherDataForOneDay(location);
     }
+
     @GetMapping("/forecast/one-week")
-    public String getOneWeekForecast(@RequestParam String location) throws URISyntaxException{
-        return weatherService.getWeatherDataForOneWeek(location);
+    public String getOneWeekForecast(@RequestParam String location) throws URISyntaxException {
+        return cachedWeatherService.getWeatherDataForOneWeek(location);
     }
 
     @GetMapping("/forecast/two-week")
     public String getTwoWeekForecast(@RequestParam String location) throws URISyntaxException {
-        return weatherService.getWeatherDataForTwoWeek(location);
+        return cachedWeatherService.getWeatherDataForTwoWeek(location);
     }
-
 }
