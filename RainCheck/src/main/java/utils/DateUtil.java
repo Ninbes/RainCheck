@@ -1,7 +1,9 @@
 package utils;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class DateUtil {
 
@@ -23,5 +25,11 @@ public class DateUtil {
         LocalDate fourteenDaysFromToday = today.plusDays(13);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return fourteenDaysFromToday.format(formatter);
+    }
+
+    public static long getSecondsUntilApiReset() {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime midnight = now.plusDays(1).truncatedTo(ChronoUnit.DAYS);
+        return ChronoUnit.SECONDS.between(now, midnight);
     }
 }

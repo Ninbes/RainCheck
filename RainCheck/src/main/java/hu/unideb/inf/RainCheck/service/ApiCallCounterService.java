@@ -2,6 +2,7 @@ package hu.unideb.inf.RainCheck.service;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
+import utils.DateUtil;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -18,7 +19,8 @@ public class ApiCallCounterService {
     public long incrementAndGet() {
         Long count = redisTemplate.opsForValue().increment(COUNTER_KEY);
         if (count == 1) {
-            redisTemplate.expire(COUNTER_KEY, Duration.ofDays(1));
+            long secondsUntilMidnight = DateUtil.getSecondsUntilApiReset();
+            redisTemplate.expire(COUNTER_KEY, Duration.ofSeconds(secondsUntilMidnight));
         }
         return count;
     }
