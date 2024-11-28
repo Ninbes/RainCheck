@@ -26,9 +26,17 @@
     sudo service redis-server start
 # Node.js & npm
 - To install node.js just follow the official [docs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+## Angular
+###### Install the Angular-cli to access the ng command, which is required to run the application
+    npm install -g @angular/cli
 ### Start the application with npm
-###### Go to the root folder of the project and open a command line tool in that folder then execute:
+###### Go to Frontend/Frontend folder of the project and open a command line tool in that folder then execute:
     npm start
+## Cypress
+###### Go to the Frontend/Frontend folder of the project and open a command line tool in that folder then execute:
+    npm install cypress --save-dev
+### Testing with cypress
+    npx cypress open
 # Java (JDK)
 
 ### First step is to install [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget)
