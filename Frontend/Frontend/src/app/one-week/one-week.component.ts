@@ -26,4 +26,9 @@ export class OneWeekComponent implements OnInit{
       }
     })
   }
+  expandedCards: { [key: string]: boolean } = {};
+
+    toggleDetails(index: number): void {
+      this.expandedCards[index] = !this.expandedCards[index]; // Az adott index állapotának váltása
+    }
 }

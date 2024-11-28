@@ -12,3 +12,4 @@ RainCheck/data/mydatabase.mv.db
 RainCheck/src/main/resources/.env
 /.idea
 /logs
+RainCheck/logs/raincheck-application.log

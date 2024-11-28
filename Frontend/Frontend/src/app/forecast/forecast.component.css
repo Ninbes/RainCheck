@@ -8,6 +8,7 @@
     width: 80%;
     margin: 4em auto;
     padding: 2em;
+    scrollbar-width: thin;
   }
   
   .card {
@@ -63,3 +64,61 @@
   color:white;
   margin-left: 1em;
 }
+.details-button{
+  display: none;
+}
+/* Alapértelmezett állapot: rejtve */
+.details {
+  display: none;
+}
+
+/* Ha az adott kártya bontott állapotban van, látható */
+.details:not(.hidden) {
+  display: block;
+}
+
+/* Széles képernyőn mindig mutasd a részleteket */
+@media (min-width: 750px) {
+  .details {
+    display: block !important;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .scroll-container {
+    display: flex;
+    flex-direction: column; /* Egymás alá rendezi az elemeket */
+    align-items: center; /* Középre igazítja a kártyákat */
+    justify-content: center; /* Függőleges középre igazítás */
+    width: 100%; /* A konténer teljes szélességet kitölti */
+    margin: 0 auto; /* Középre helyezi a konténert */
+    padding: 1em;
+  }
+
+  .card {
+    width: 80%; /* A kártyák szélessége a képernyő szélességének 80%-a */
+    margin: 1em 0; /* Függőleges margók a kártyák között */
+  }
+
+  .title {
+    text-align: center; /* A cím középre igazítása */
+    margin: 1em auto; /* Középre helyezés */
+  }
+  .details-button {
+    display: block; /* A gomb blokk elemként viselkedik */
+    margin: auto auto; /* Középre igazítás és 1em távolság minden oldalon */
+    border: none; /* Nincs gombszegély */
+    background-color: transparent; /* Átlátszó háttér */
+    color: #333; /* Sötétszürke szín */
+    font-size: 3em; /* Ikon méretének beállítása */
+    line-height: 1; /* Megfelelő függőleges igazítás */
+    cursor: pointer; /* Mutatja, hogy kattintható */
+  }
+  .card:hover{
+    scale: none;
+  }
+  .card-body{
+    padding-bottom: 2em;
+  }
+}
+

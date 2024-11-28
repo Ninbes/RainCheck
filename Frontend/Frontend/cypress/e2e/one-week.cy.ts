@@ -14,7 +14,7 @@ describe('OneWeekComponent', () => {
       cy.get('.title').should('contain', 'One-week forecast:');
     });
   
-    it('should display three forecast cards for the mocked data', () => {
+    it('should display 7 forecast cards', () => {
       cy.get('.card').should('have.length', 7);
     });
   

@@ -10,7 +10,7 @@ describe('TwoWeeksComponent', () => {
     it('should display the title', () => {
       cy.get('.title').should('contain', 'Two-weeks forecast:');
     });
-    it('should display three forecast cards for the mocked data', () => {
+    it('should display 14 forecast cards', () => {
       cy.get('.card').should('have.length', 14);
     });
     it('should display valid time format in card headers', () => {

@@ -1,15 +1,22 @@
 <div class="title">Two-weeks forecast:</div>
 <div class="scroll-container">
-    <div *ngFor="let day of days">
-        <div class="card d-inline-block m-1">
+    <!--<div *ngFor="let day of days; let i=index">-->
+        <div class="card m-1" *ngFor="let day of days; let i=index">
           <div class="card-header">{{day.datetime}}</div>
           <div class="card-body">
           <div>Maximum temperature: <br><span class="temp">{{day.tempmax}} °C</span></div>
+          <div class="details" [class.hidden]="!expandedCards[i]">
           <div>Minimum temperature: <br><span class="temp">{{day.tempmin}} °C</span></div>
           <div>Amount of precipitation: <br><span class="precip">{{day.precip}} cm</span></div>
           <div>Precipitation type: <br><span class="precip">{{day.preciptype || "Not expected"}} </span></div>
         </div>
+        <button 
+          class="details-button" 
+          (click)="toggleDetails(i)">
+          {{ expandedCards[i] ? '&#129169;' : '&#129171;' }}
+        </button>
         </div>
         </div>
-      </div>
+        </div>
+      <!--</div>-->
     
