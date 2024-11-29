@@ -17,6 +17,7 @@ days!: Day[];
 hours!: Hour[];
 
 @Input() city!:string;
+errorMessage: string | null=null;
 
   constructor(private service: ForecastService) {
     
@@ -27,8 +28,12 @@ hours!: Hour[];
         this.forecast=value;
         //this.hours=this.day.hours;
         this.days=this.forecast.days;
+        this.errorMessage=null;
         
-      }
+      },
+        error: (error)=> {
+          this.errorMessage=error.message;
+        }
     })
   }
   ngOnChanges(changes: SimpleChanges){
@@ -41,7 +46,11 @@ hours!: Hour[];
       next: value=>{
         this.forecast=value;
         this.days=this.forecast.days;
-      }
+        this.errorMessage=null;
+        },
+        error: (error)=> {
+          this.errorMessage=error.message;
+        }
     })
   }
   /*showDetails: boolean=false;

@@ -1,5 +1,5 @@
 <div class="title">Two-weeks forecast:</div>
-<div class="scroll-container">
+@if(!errorMessage){<div class="scroll-container">
     <!--<div *ngFor="let day of days; let i=index">-->
         <div class="card m-1" *ngFor="let day of days; let i=index">
           <div class="card-header">{{day.datetime}}</div>
@@ -18,5 +18,7 @@
         </div>
         </div>
         </div>
-      <!--</div>-->
+      <!--</div>-->}@else {
+      <div class="error">No details available.</div>
+      }
     

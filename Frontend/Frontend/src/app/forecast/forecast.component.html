@@ -2,7 +2,7 @@
   <div  *ngFor="let day of days">
     <div class="title">One-day forecast:</div>
 
-    <div class="scroll-container">
+    @if(!errorMessage){<div class="scroll-container">
     <div class="card m-1" *ngFor="let hour of day.hours; let i=index"> <!--d-inline-block-->
       <div class="card-header">{{hour.datetime.slice(0, 5)}}</div>
       <div class="card-body">
@@ -18,5 +18,7 @@
         </button>
     </div>
     </div>
-    </div>
+    </div>}@else {
+      <div class="error">No details available.</div>
+    }
   </div>
