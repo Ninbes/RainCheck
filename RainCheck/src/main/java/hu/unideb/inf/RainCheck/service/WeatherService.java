@@ -36,7 +36,7 @@ public class WeatherService {
                 .queryParam("contentType", "json")
                 .toUriString();
 
-        logger.info("Fetching weather data for one day. Location: {}, Date: {}", location, today);
+        logger.debug("Fetching weather data for one day. Location: {}, Date: {}", location, today);
         logger.debug("Constructed URL: {}", url);
 
         apiCallCounter.incrementAndGet();

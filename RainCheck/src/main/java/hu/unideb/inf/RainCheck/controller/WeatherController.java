@@ -22,10 +22,10 @@ public class WeatherController {
 
     @GetMapping("/forecast/today")
     public String getTodayWeather(@RequestParam String location) throws URISyntaxException {
-        logger.info("Received request for today's weather. Location: {}", location);
+        logger.debug("Received request for today's weather. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForOneDay(location);
-            logger.info("Successfully retrieved today's weather data for location: {}", location);
+            logger.debug("Successfully retrieved today's weather data for location: {}", location);
             return response;
         } catch (Exception e) {
             logger.error("Error occurred while fetching today's weather for location: {}", location, e);
@@ -35,10 +35,10 @@ public class WeatherController {
 
     @GetMapping("/forecast/one-week")
     public String getOneWeekForecast(@RequestParam String location) throws URISyntaxException {
-        logger.info("Received request for one-week weather forecast. Location: {}", location);
+        logger.debug("Received request for one-week weather forecast. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForOneWeek(location);
-            logger.info("Successfully retrieved one-week weather forecast for location: {}", location);
+            logger.debug("Successfully retrieved one-week weather forecast for location: {}", location);
             return response;
         } catch (Exception e) {
             logger.error("Error occurred while fetching one-week weather forecast for location: {}", location, e);
@@ -48,10 +48,10 @@ public class WeatherController {
 
     @GetMapping("/forecast/two-week")
     public String getTwoWeekForecast(@RequestParam String location) throws URISyntaxException {
-        logger.info("Received request for two-week weather forecast. Location: {}", location);
+        logger.debug("Received request for two-week weather forecast. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForTwoWeek(location);
-            logger.info("Successfully retrieved two-week weather forecast for location: {}", location);
+            logger.debug("Successfully retrieved two-week weather forecast for location: {}", location);
             return response;
         } catch (Exception e) {
             logger.error("Error occurred while fetching two-week weather forecast for location: {}", location, e);

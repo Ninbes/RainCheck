@@ -23,19 +23,19 @@ public class CachedWeatherService {
 
     public String getWeatherDataForOneDay(String location) throws URISyntaxException {
         String cacheKey = "weather:one-day:" + location;
-        logger.info("Requesting one-day weather data for location: {}", location);
+        logger.debug("Requesting one-day weather data for location: {}", location);
         return fetchAndCacheData(cacheKey, () -> weatherService.getWeatherDataForOneDay(location));
     }
 
     public String getWeatherDataForOneWeek(String location) throws URISyntaxException {
         String cacheKey = "weather:one-week:" + location;
-        logger.info("Requesting one-week weather data for location: {}", location);
+        logger.debug("Requesting one-week weather data for location: {}", location);
         return fetchAndCacheData(cacheKey, () -> weatherService.getWeatherDataForOneWeek(location));
     }
 
     public String getWeatherDataForTwoWeek(String location) throws URISyntaxException {
         String cacheKey = "weather:two-week:" + location;
-        logger.info("Requesting two-week weather data for location: {}", location);
+        logger.debug("Requesting two-week weather data for location: {}", location);
         return fetchAndCacheData(cacheKey, () -> weatherService.getWeatherDataForTwoWeek(location));
     }
 
@@ -45,7 +45,7 @@ public class CachedWeatherService {
 
         String cachedData = redisTemplate.opsForValue().get(cacheKey);
         if (cachedData != null) {
-            logger.info("Cache hit for key: {}", cacheKey);
+            logger.debug("Cache hit for key: {}", cacheKey);
             return cachedData;
         }
 
@@ -56,7 +56,7 @@ public class CachedWeatherService {
         logger.debug("Caching data for key: {} with TTL of {} seconds.", cacheKey, secondsUntilMidnight);
 
         redisTemplate.opsForValue().set(cacheKey, freshData, Duration.ofSeconds(secondsUntilMidnight));
-        logger.info("Data cached successfully for key: {}", cacheKey);
+        logger.debug("Data cached successfully for key: {}", cacheKey);
 
         return freshData;
     }

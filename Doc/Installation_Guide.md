@@ -25,7 +25,16 @@
 #### Lastly start the Redis server like so: 
     sudo service redis-server start
 # Node.js & npm
-- To install node.js just follow the official [docs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+    winget install Schniz.fnm # installs fnm (Fast Node Manager)
+
+    fnm env --use-on-cd | Out-String | Invoke-Expression # configure fnm environment
+
+    fnm use --install-if-missing 22 # download and install Node.js
+
+    node -v # should print `v22.11.0` 
+    npm -v # should print `10.9.0`
+- or just follow the official [docs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
 ## Angular
 ###### Install the Angular-cli to access the ng command, which is required to run the application
     npm install -g @angular/cli

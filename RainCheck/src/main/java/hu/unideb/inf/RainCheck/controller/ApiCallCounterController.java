@@ -20,7 +20,7 @@ public class ApiCallCounterController {
 
     @GetMapping("/api-call-count")
     public String getApiCallCount() {
-        logger.info("Received request to fetch API call count and remaining TTL.");
+        logger.debug("Received request to fetch API call count and remaining TTL.");
 
         try {
             long count = apiCallCounter.getCount();

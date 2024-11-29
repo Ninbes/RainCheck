@@ -20,7 +20,7 @@ public class ApiCallCounterService {
     }
 
     public long incrementAndGet() {
-        logger.info("Incrementing API call counter.");
+        logger.debug("Incrementing API call counter.");
         Long count = redisTemplate.opsForValue().increment(COUNTER_KEY);
 
         if (count == 1) {
@@ -43,7 +43,7 @@ public class ApiCallCounterService {
     }
 
     public String getRemainingTTL() {
-        logger.info("Fetching remaining TTL for the API call counter.");
+        logger.debug("Fetching remaining TTL for the API call counter.");
         Long ttlSeconds = redisTemplate.getExpire(COUNTER_KEY, TimeUnit.SECONDS);
 
         if (ttlSeconds == null || ttlSeconds < 0) {
