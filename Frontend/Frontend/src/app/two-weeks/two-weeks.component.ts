@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { Day, TwoWeeksForecast } from './two-weeks.model';
 import { ForecastService } from '../forecast.service';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,7 @@ export class TwoWeeksComponent {
   twoWeeksForecast!: TwoWeeksForecast;
   days!: Day[];
   @Input() city!:string;
+  errorMessage: string | null=null;
 
   constructor(private service: ForecastService) {
     
@@ -23,7 +24,28 @@ export class TwoWeeksComponent {
       next: value=>{
         this.twoWeeksForecast=value;
         this.days=this.twoWeeksForecast.days;
+        this.errorMessage=null;
+      },
+      error: (error)=> {
+        this.errorMessage=error.message;
       }
+    })
+  }
+  ngOnChanges(changes: SimpleChanges){
+    if(changes['city']){
+      this.loadForecast();
+    }
+  }
+  loadForecast(){
+    this.service.findTwoWeeksForecast(this.city).subscribe({
+      next: value=>{
+        this.twoWeeksForecast=value;
+        this.days=this.twoWeeksForecast.days;
+        this.errorMessage=null;
+        },
+        error: (error)=> {
+          this.errorMessage=error.message;
+        }
     })
   }
   expandedCards: { [key: string]: boolean } = {};

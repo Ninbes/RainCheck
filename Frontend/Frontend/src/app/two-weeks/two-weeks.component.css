@@ -75,6 +75,15 @@
   .details:not(.hidden) {
     display: block;
   }
+  .error{
+    margin: 3em, auto;
+    font-style: italic;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    padding: 2em;
+    
+  }
   
   /* Széles képernyőn mindig mutasd a részleteket */
   @media (min-width: 750px) {
