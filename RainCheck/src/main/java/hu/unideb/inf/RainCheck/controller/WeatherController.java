@@ -22,7 +22,7 @@ public class WeatherController {
 
     @GetMapping("/forecast/today")
     public String getTodayWeather(@RequestParam String location) throws URISyntaxException {
-        logger.debug("Received request for today's weather. Location: {}", location);
+        logger.info("Received request for today's weather. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForOneDay(location);
             logger.debug("Successfully retrieved today's weather data for location: {}", location);
@@ -35,7 +35,7 @@ public class WeatherController {
 
     @GetMapping("/forecast/one-week")
     public String getOneWeekForecast(@RequestParam String location) throws URISyntaxException {
-        logger.debug("Received request for one-week weather forecast. Location: {}", location);
+        logger.info("Received request for one-week weather forecast. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForOneWeek(location);
             logger.debug("Successfully retrieved one-week weather forecast for location: {}", location);
@@ -48,7 +48,7 @@ public class WeatherController {
 
     @GetMapping("/forecast/two-week")
     public String getTwoWeekForecast(@RequestParam String location) throws URISyntaxException {
-        logger.debug("Received request for two-week weather forecast. Location: {}", location);
+        logger.info("Received request for two-week weather forecast. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForTwoWeek(location);
             logger.debug("Successfully retrieved two-week weather forecast for location: {}", location);
