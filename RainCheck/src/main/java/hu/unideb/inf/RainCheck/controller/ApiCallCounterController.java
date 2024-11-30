@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 public class ApiCallCounterController {
@@ -19,7 +21,7 @@ public class ApiCallCounterController {
     }
 
     @GetMapping("/api-call-count")
-    public String getApiCallCount() {
+    public ResponseEntity<String> getApiCallCount() {
         logger.debug("Received request to fetch API call count and remaining TTL.");
 
         try {
@@ -32,10 +34,11 @@ public class ApiCallCounterController {
             String response = String.format("Total API calls made: %d. \nTime remaining: %s.", count, ttl);
             logger.info("Successfully fetched API call count and TTL. Response: {}", response);
 
-            return response;
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             logger.error("An error occurred while fetching API call count or TTL.", e);
-            throw e;
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occurred while fetching API call count or TTL.");
         }
     }
 }
