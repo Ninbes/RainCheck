@@ -31,13 +31,11 @@ class ApiCallCounterControllerTest {
 
     @Test
     void testGetApiCallCount_Success() throws Exception {
-        // Given
         long count = 100;
         String ttl = "1 hour";
         when(apiCallCounterService.getCount()).thenReturn(count);
         when(apiCallCounterService.getRemainingTTL()).thenReturn(ttl);
 
-        // When & Then
         mockMvc.perform(get("/api-call-count")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -49,10 +47,8 @@ class ApiCallCounterControllerTest {
 
     @Test
     void testGetApiCallCount_ServiceThrowsException() throws Exception {
-        // Given
         when(apiCallCounterService.getCount()).thenThrow(new RuntimeException("Service failure"));
 
-        // When & Then
         mockMvc.perform(get("/api-call-count")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isInternalServerError())
