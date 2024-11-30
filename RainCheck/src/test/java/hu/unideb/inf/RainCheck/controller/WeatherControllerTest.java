@@ -9,6 +9,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -44,19 +45,35 @@ class WeatherControllerTest {
         String location = "Valid Location";
         String mockWeatherData = "{\"temperature\": 22, \"forecast\": \"Sunny\"}";
 
-        // Mocking the successful response from CachedWeatherService
         when(cachedWeatherService.getWeatherDataForOneWeek(location)).thenReturn(mockWeatherData);
 
         mockMvc.perform(get("/forecast/one-week")
                         .param("location", location)
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk()) // Expect 200 OK
-                .andExpect(content().json(mockWeatherData)); // Check if returned content matches
+                .andExpect(status().isOk())
+                .andExpect(content().json(mockWeatherData));
 
-        // Verifying that the service method was called with the correct location
         verify(cachedWeatherService).getWeatherDataForOneWeek(location);
     }
 
+    @Test
+    void testGetWeatherData_BadRequest() throws Exception {
+        String location = "";
 
+        mockMvc.perform(get("/forecast/one-week")
+                        .param("location", location)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("Invalid location parameter"));
+
+        verify(cachedWeatherService, never()).getWeatherDataForOneWeek(location);
+    }
+
+    @Test
+    void testGetWeatherData_NoHandlerFound() throws Exception {
+        mockMvc.perform(get("/forecast/non-existent")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
 
 }
