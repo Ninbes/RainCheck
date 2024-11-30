@@ -19,6 +19,10 @@ public class ApiCallCounterService {
         this.redisTemplate = redisTemplate;
     }
 
+    public static String getCounterKey() {
+        return COUNTER_KEY;
+    }
+
     public long incrementAndGet() {
         logger.debug("Incrementing API call counter.");
         Long count = redisTemplate.opsForValue().increment(COUNTER_KEY);
