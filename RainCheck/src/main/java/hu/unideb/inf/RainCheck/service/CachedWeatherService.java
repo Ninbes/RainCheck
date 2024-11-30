@@ -45,7 +45,7 @@ public class CachedWeatherService {
 
         String cachedData = redisTemplate.opsForValue().get(cacheKey);
         if (cachedData != null) {
-            logger.debug("Cache hit for key: {}", cacheKey);
+            logger.info("Cache hit for key: {}", cacheKey);
             return cachedData;
         }
 

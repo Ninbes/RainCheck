@@ -22,6 +22,9 @@ public class WeatherController {
 
     @GetMapping("/forecast/today")
     public String getTodayWeather(@RequestParam String location) throws URISyntaxException {
+        if (location.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid location parameter");
+        }
         logger.info("Received request for today's weather. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForOneDay(location);
@@ -35,6 +38,10 @@ public class WeatherController {
 
     @GetMapping("/forecast/one-week")
     public String getOneWeekForecast(@RequestParam String location) throws URISyntaxException {
+
+        if (location.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid location parameter");
+        }
         logger.info("Received request for one-week weather forecast. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForOneWeek(location);
@@ -48,6 +55,9 @@ public class WeatherController {
 
     @GetMapping("/forecast/two-week")
     public String getTwoWeekForecast(@RequestParam String location) throws URISyntaxException {
+        if (location.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid location parameter");
+        }
         logger.info("Received request for two-week weather forecast. Location: {}", location);
         try {
             String response = cachedWeatherService.getWeatherDataForTwoWeek(location);

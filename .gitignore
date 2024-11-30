@@ -13,3 +13,4 @@ RainCheck/src/main/resources/.env
 /.idea
 /logs
 RainCheck/logs/raincheck-application.log
+/RainCheck/logs
