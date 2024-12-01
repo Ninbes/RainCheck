@@ -1,8 +1,30 @@
 <header [class.scrolled]="isScrolled" class="header">
     <div class="logo">
         <a href="/">
-            <img src="assets/logo2.webp" alt="RainCheck logo">
+            <img src="assets/icon.ico" alt="RainCheck logo">
             <h2>RainCheck</h2>
         </a>
     </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Theme
+        </button>
+            <ul class="dropdown-menu">
+                <li (change)="onColorChange()">
+                    <label class="dropdown-item" id="rainy">
+                        <input type="radio" name="weather" value="rainy" class="me-2" [(ngModel)]="colorValue"> Rainy
+                    </label>
+                </li>
+                <li  (change)="onColorChange()">
+                    <label class="dropdown-item" id="sunny">
+                        <input type="radio" name="weather" value="sunny" class="me-2" [(ngModel)]="colorValue"> Sunny
+                    </label>
+                </li>
+                <li (change)="onColorChange()">
+                    <label class="dropdown-item" id="snowy">
+                        <input type="radio" name="weather" value="snowy" class="me-2" [(ngModel)]="colorValue"> Snowy
+                    </label>
+                </li>
+            </ul>
+          </div>
 </header>
