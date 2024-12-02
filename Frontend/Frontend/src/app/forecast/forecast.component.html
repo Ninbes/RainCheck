@@ -3,7 +3,7 @@
     <div class="title">One-day forecast:</div>
 
     @if(!errorMessage){<div class="scroll-container">
-    <div class="card m-1" *ngFor="let hour of day.hours; let i=index"> <!--d-inline-block-->
+    <div class="card m-1" *ngFor="let hour of day.hours; let i=index">
       <div class="card-header">{{hour.datetime.slice(0, 5)}}</div>
       <div class="card-body">
       <div>Expected temperature: <br><span class="temp">{{hour.temp}} °C</span></div>

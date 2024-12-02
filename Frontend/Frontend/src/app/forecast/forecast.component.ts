@@ -53,13 +53,9 @@ errorMessage: string | null=null;
         }
     })
   }
-  /*showDetails: boolean=false;
-  show(){
-    this.showDetails=!this.showDetails;
-  }*/
     expandedCards: { [key: string]: boolean } = {};
 
     toggleDetails(index: number): void {
-      this.expandedCards[index] = !this.expandedCards[index]; // Az adott index állapotának váltása
+      this.expandedCards[index] = !this.expandedCards[index];
     }
 }

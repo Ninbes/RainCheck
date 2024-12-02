@@ -29,6 +29,7 @@
     max-height: 100px;
     margin: auto;
     justify-content: center;
+    margin-left: 1em;
 }
 
 .logo h2 {
@@ -110,6 +111,11 @@ input[type="radio"]{
     .logo{
         margin-left: 50%;
         transform: translateX(-50%);
+        padding-right: 0;
+        margin-right: 0;
+    }
+    button{
+        transform: translateX(-25%);
     }
 
 }
