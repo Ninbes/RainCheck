@@ -21,6 +21,7 @@ To inform users about the weather forecast.
 - TODO: Menu Hierarchy
 - TODO: Screen Design
 
+TODO DATABASE
 ## Requirements for the Interface
 - Web: Must match the developed prototype.
 - Easily operable system.
