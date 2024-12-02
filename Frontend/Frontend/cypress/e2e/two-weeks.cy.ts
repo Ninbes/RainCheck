@@ -4,8 +4,8 @@ describe('TwoWeeksComponent', () => {
         statusCode: 200,
       }).as('getForecast');
       cy.visit('/');
-      cy.get('input[type="radio"][value="14"]').check({ force: true }); // Rádiógomb kiválasztása
-      cy.get('input[type="radio"]:checked').should('have.value', '14');
+      cy.get('app-filter input[type="radio"][value="14"]').check({ force: true });
+      cy.get('app-filter input[type="radio"]:checked').should('have.value', '14');
       });
     it('should display the title', () => {
       cy.get('.title').should('contain', 'Two-weeks forecast:');
@@ -51,5 +51,25 @@ describe('TwoWeeksComponent', () => {
             return text === 'Not expected' || text.length > 0;
           });
       });
+    });
+    it('should toggle details when button is clicked', () => {
+      cy.viewport(500, 800);
+      cy.get('.details-button').eq(0).click();
+      cy.get('.details').eq(0).should('not.have.class', 'hidden');
+      cy.get('.details-button').eq(0).click();
+      cy.get('.details').eq(0).should('have.class', 'hidden');
+    });
+    it('should display error message if no forecast data is available', () => {
+      cy.intercept('GET', '/api/forecast*', {
+        statusCode: 404,
+        body: { message: 'No forecast available' },
+      }).as('getNoForecast');
+      cy.visit('/');
+      cy.get('app-filter input[type="text"]').type('kl');
+        cy.get('app-filter input[type="text"]').should('have.value', 'kl');
+        cy.get('app-filter input[type="radio"][value="14"]').check({ force: true });
+      cy.get('app-filter input[type="radio"]:checked').should('have.value', '14');
+        cy.get('app-filter form').submit();
+      cy.get('.error').should('contain', 'No details available.');
     });
   });

@@ -24,6 +24,7 @@ export class AppComponent{
   title='RainCheck';
   selectedValue: string="1";
   selectedCity: string="Budapest";
+  selectedColor: string="rainy";
   scrollToSection() {
     const targetElement = document.getElementById('target-section');
     if (targetElement) {

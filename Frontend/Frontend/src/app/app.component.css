@@ -25,4 +25,18 @@
   #target-section{
     margin-top: 2em;
   }
+  main{
+    
+    margin: 0;
+    padding-bottom: 1em;
+  }
+  .rainy{
+    background: linear-gradient(to right, #007991, #78ffd6);
+  }
+  .sunny{
+    background: linear-gradient(to right, #f6d365, #fda085);
+}
+  .snowy{
+    background: linear-gradient(to right, #99b3ee, #4677b6);
+  }
 
