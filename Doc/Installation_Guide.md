@@ -39,6 +39,8 @@
 ###### Install the Angular-cli to access the ng command, which is required to run the application
     npm install -g @angular/cli
 ### Start the application with npm
+###### Navigate to the Frontend/Frontend folder and install the necessary dependencies before the first run:
+    npm install
 ###### Go to Frontend/Frontend folder of the project and open a command line tool in that folder then execute:
     npm start
 ## Cypress
