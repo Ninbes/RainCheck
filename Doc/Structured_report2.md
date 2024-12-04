@@ -25,7 +25,7 @@ To ensure the successful development of the RainCheck application, please answer
 11. #### Would you pay for this technology?
     *Yes, I believe it would be much more cost-effective in the long term than renting a larger database package.*
 12. #### What temperature scale is used in the meteorological data?
-    *The temperature values are provided in Kelvin, but I would like them to be displayed in Celsius.*
+    *The temperature values are provided in Fahrenheit, but I would like them to be displayed in Celsius.*
 13. #### In what unit is the precipitation amount given?
     *The precipitation amount is provided in centimeters, and I would like it to be displayed in centimeters as well.*
 14. #### Should any additional information about the requested city be displayed?
