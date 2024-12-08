@@ -1,12 +1,12 @@
 # **RainCheck Requirement Specification**
 ## **1. Current Situation**
-Our business, RainCheck, provides simple and quick forecasts for weather developments. We offer accurate and reliable information to users, who can get a weather forecast by phone.
+Our business, RainCheck, provides simple and quick forecasts for weather developments. We offer accurate and reliable information to users, who can get a weather forecast by a phone call/sms.
 
 ## **2. Dream System**
 We would like a website where our users can check forecasts for all settlements across the world, including 1-day, 1-week, and 2-week forecasts, with the 1-day forecast being the most detailed and the 2-week forecast the least detailed. Additionally, we want the site to function responsively and to be as easy to use as possible.
 
 ## **3. Current Business Processes**
-Weather reporting tied to location.
+Weather reporting tied to location. Call or send a message to the dispatcher and they will let you know about the weather to that specific location.
 
 ## **4. Required Business Processes**
 Our application will use the free version of an API called **Visual Crossing Weather** which limits how many calls a day our users can make.  
