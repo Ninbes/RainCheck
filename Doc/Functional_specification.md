@@ -16,5 +16,8 @@ We created a website where users can check forecasts for all settlements across 
 
 ## Screen plans
 ![image](https://github.com/user-attachments/assets/53aa74d2-57ab-4528-859d-5657b0b73cc1)
+In this screen the user should be able to input text within the box, also change the theme and select which interval they want the forecast to be visible.
 ![image](https://github.com/user-attachments/assets/84ea6942-8baf-45d4-86e4-7ff8e48f2818)
+An example of how the one day forecast should look like.
 ![image](https://github.com/user-attachments/assets/aed8ada7-4823-4911-97e1-4bcdfd0c2b4e)
+An example of how the one week forecast should look like. Which is also how the two week forecast should be visible.
